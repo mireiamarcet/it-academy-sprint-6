@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import Escena from "./components/escena/Escena"
+import data from "./data"
 
 function App() {
+  const elementsEscena = data.map(e => <Escena text={e}/>)
   return (
     <div className="App">
-      <Escena />
+      {elementsEscena}
     </div>
   );
 }
