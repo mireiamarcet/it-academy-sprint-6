@@ -1,5 +1,5 @@
 import React from "react"
 
-export default function Escena({text}){
-    return <p>{text}</p>
+export default function Escena({item}){
+    return <p>{item.text}</p>
 }
