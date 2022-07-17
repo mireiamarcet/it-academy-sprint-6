@@ -27,7 +27,7 @@ function App() {
       { index === 0 ? 
             <Pantalla tipus="Inici" endavant={avançar} />
             : 
-            <Pantalla tipus="Contingut" endavant={avançar} enrere={retrocedir} escenes={elementsEscena} />
+            <Pantalla tipus="Contingut" endavant={avançar} enrere={retrocedir} escenes={elementsEscena} index={index}/>
       }      
     </div>
   );
