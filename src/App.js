@@ -1,8 +1,10 @@
+import React from "react"
+import data from "./data"
 import './App.css';
 import Escena from "./components/escena/Escena"
-import data from "./data"
-import React from "react"
-import Pantalla from "./components/Pantalla"
+import Inici from "./components/Inici"
+import Contingut from "./components/Contingut"
+import Final from "./components/Final"
 
 function App() {
   const [index, setIndex] = React.useState(0)
@@ -17,17 +19,23 @@ function App() {
   
   
   function avançar(){
-    if(index < elementsEscena.length) {
+    if(index <= elementsEscena.length) {
       setIndex(prevIndex => prevIndex + 1)
     }
+  }
+
+  function reiniciar(){
+    setIndex(0)
   }
 
   return (
     <div className="App">
       { index === 0 ? 
-            <Pantalla tipus="Inici" endavant={avançar} />
-            : 
-            <Pantalla tipus="Contingut" endavant={avançar} enrere={retrocedir} escenes={elementsEscena} index={index}/>
+            <Inici endavant={avançar} />
+            : index <= data.length ?
+              <Contingut endavant={avançar} enrere={retrocedir} escenes={elementsEscena} index={index}/>
+              :
+              <Final reiniciar={reiniciar} />
       }      
     </div>
   );
